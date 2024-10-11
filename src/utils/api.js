@@ -35,5 +35,13 @@ export const api = {
       console.error(error);
     }
   },
+  sendOrder: async (data) => {
+    try {
+      const response = await axios.post(`${baseURL}Order`, data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 };

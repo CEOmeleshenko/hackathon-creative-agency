@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigation = useNavigate();
   return (
     <div>
       <section className="bg-gray-100 py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">Креативное агентство Design Dynasty</h1>
           <p className="mb-8">Обойдитесь без лишних затрат</p>
-          <button className="bg-red-500 text-white px-8 py-4 rounded-full mb-4">ОСТАВИТЬ ЗАЯВКУ</button>
+          <button onClick={() => navigation('/request')} className="bg-red-500 text-white px-8 py-4 rounded-full mb-4">ОСТАВИТЬ ЗАЯВКУ</button>
           <p>* Ваша заявка не является публичной офертой</p>
         </div>
       </section>
@@ -38,7 +39,7 @@ const Home = () => {
             </div>
           </div>
           <p className="mt-8">Не нашли услугу в списке, или остались вопросы? Свяжитесь с менеджером по телефону +7 (778) 905-12-44 или</p>
-          <button className="bg-red-500 text-white px-8 py-4 rounded-full mt-4">ОСТАВИТЬ ЗАЯВКУ</button>
+          <button onClick={() => navigation('/request')} className="bg-red-500 text-white px-8 py-4 rounded-full mt-4">ОСТАВИТЬ ЗАЯВКУ</button>
         </div>
       </section>
       <section className="bg-yellow-300 py-16">
@@ -46,7 +47,7 @@ const Home = () => {
           <div className="w-1/2">
             <h2 className="text-3xl font-bold mb-4">Заказать бесплатную консультацию</h2>
             <p className="mb-8">Консультация бесплатная при условии заказа услуг.</p>
-            <button className="bg-red-500 text-white px-8 py-4 rounded-full">Заказать услугу</button>
+            <button onClick={() => navigation('/request')} className="bg-red-500 text-white px-8 py-4 rounded-full">Заказать услугу</button>
           </div>
           <div className="w-1/2">
             <img src="consultation.png" alt="Мастер и стиральная машина" />
@@ -60,11 +61,7 @@ const Home = () => {
             <div className="bg-white p-8 shadow-md">
               <h3 className="text-xl font-bold mb-4">Анимация и видеографика</h3>
               <p className="mb-4">Мы создаем динамичные анимации и видеографику, которые эффективно передают ваш бренд и идеи, привлекая и удерживая внимание вашей аудитории.
-
-
-
-
-</p>
+              </p>
               <span className="text-red-500">от 500 рублей</span>
             </div>
             <div className="bg-white p-8 shadow-md">
@@ -126,34 +123,22 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-yellow-300 py-16">
-        <div className="container mx-auto flex items-center">
-          <div className="w-1/2">
-            <h2 className="text-3xl font-bold mb-4">Получите скидку 15% прямо сейчас!</h2>
-            <p className="mb-8">Вы получите скидку 15% на все виды ремонта при условии заказа через наш сайт. Скидка не суммируется с другими акциями и предложениями.</p>
-            <button className="bg-red-500 text-white px-8 py-4 rounded-full">Получить скидку 15%</button>
-          </div>
-          <div className="w-1/2">
-            <img src="https://placehold.co/400x400" alt="Мастер и стиральная машина" />
-          </div>
-        </div>
-      </section>
       <section className="bg-white py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Отзывы</h2>
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-gray-100 p-8 shadow-md">
-              <img src="https://placehold.co/100x100" alt="Константин" className="rounded-full mx-auto mb-4" />
+              <img src="avatar-m.png" alt="Константин" className="rounded-full mx-auto mb-4" width="50" height="50" />
               <h3 className="text-xl font-bold mb-4">Константин</h3>
               <p>Сделали все быстро и качественно. Очень доволен результатом!</p>
             </div>
             <div className="bg-gray-100 p-8 shadow-md">
-              <img src="https://placehold.co/100x100" alt="Анна" className="rounded-full mx-auto mb-4" />
+              <img src="avatar-f.png" alt="Анна" className="rounded-full mx-auto mb-4" width="50" height="50" />
               <h3 className="text-xl font-bold mb-4">Анна</h3>
               <p>Очень благодарна за оперативную работу. Все сделали на высшем уровне!</p>
             </div>
             <div className="bg-gray-100 p-8 shadow-md">
-              <img src="https://placehold.co/100x100" alt="Дмитрий" className="rounded-full mx-auto mb-4" />
+              <img src="avatar-m.png" alt="Дмитрий" className="rounded-full mx-auto mb-4" width="50" height="50" />
               <h3 className="text-xl font-bold mb-4">Дмитрий</h3>
               <p>Отличная работа! Буду рекомендовать всем своим знакомым.</p>
             </div>
@@ -169,12 +154,12 @@ const Home = () => {
               <p>Вы можете узнать стоимость услуги, позвонив по телефону +7 (778) 905-12-44 или оставив заявку на сайте.</p>
             </div>
             <div className="bg-white p-8 shadow-md">
-              <h3 className="text-xl font-bold mb-4">Можно ли вызвать мастера на дом или офис?</h3>
-              <p>Да, вы можете вызвать мастера на дом или офис, оставив заявку на сайте или позвонив по телефону +7 (778) 905-12-44.</p>
+              <h3 className="text-xl font-bold mb-4">Можно ли разработать нестандартное решение, не указанное в списке услуг?</h3>
+              <p>Да, вы можете оставить заявку на сайте или позвонив по телефону +7 (778) 905-12-44.</p>
             </div>
             <div className="bg-white p-8 shadow-md">
-              <h3 className="text-xl font-bold mb-4">Сколько будет длиться ремонт?</h3>
-              <p>Сроки ремонта зависят от сложности работы и наличия необходимых запчастей. Обычно ремонт занимает от 1 до 3 дней.</p>
+              <h3 className="text-xl font-bold mb-4">Сколько будет длиться разработка дизайна?</h3>
+              <p>Сроки разработки зависят от сложности работы.</p>
             </div>
             <div className="bg-white p-8 shadow-md">
               <h3 className="text-xl font-bold mb-4">Не нашли ответ на вопрос?</h3>
@@ -190,7 +175,7 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-4">Ваш город: Смоленск</h3>
               <p>Режим работы: с 8:30 до 18:00 (Пн-Пт)</p>
               <p>+7 (702) 123-45-67</p>
-              <button className="bg-red-500 text-white px-8 py-4 rounded-full mt-4">Заказать звонок</button>
+              <button onClick={() => navigation('/request')} className="bg-red-500 text-white px-8 py-4 rounded-full mt-4">Заказать услугу</button>
             </div>
           </div>
         </div>
