@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../utils/api';
 
 function Register() {
   const [name, setName] = useState('');
@@ -7,14 +8,14 @@ function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await api.login(name, email, password);
-      setUser(response)
+      api.register(response)
       navigate('/profile');
-      handleClose();
       console.log(response)
     } catch (error) {
       console.error(error);
