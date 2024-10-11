@@ -8,17 +8,24 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Call API to register
-    console.log('Register API call');
+    try {
+      const response = await api.login(name, email, password);
+      setUser(response)
+      navigate('/profile');
+      handleClose();
+      console.log(response)
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white p-8 rounded-lg shadow-lg w-2/3">
         <h2 className="text-2xl font-bold mb-6 text-center">Регистрация</h2>
-        <form className="space-y-4 max-w-md mx-auto">
+        <form className="space-y-4 max-w-md mx-auto" onSubmit={handleSubmit}>
           <input type="name" placeholder="Имя" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <input type="email" placeholder="Email" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <input type="password" placeholder="Придумайте пароль" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -27,11 +34,11 @@ function Register() {
         </form>
 
         <div className="my-6 flex items-center">
-						<hr className="flex-grow border-gray-300" />
-					</div>
-					<div className="text-center text-sm text-gray-500">
-						Ещё нет аккаунта? <Link to={'/register'} className="mr-4 text-blue-500">Зарегестрироваться</Link>
-					</div>
+          <hr className="flex-grow border-gray-300" />
+        </div>
+        <div className="text-center text-sm text-gray-500">
+          Ещё нет аккаунта? <Link to={'/register'} className="mr-4 text-blue-500">Зарегестрироваться</Link>
+        </div>
 
       </div>
     </div>

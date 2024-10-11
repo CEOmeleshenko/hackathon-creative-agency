@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import Request from './pages/Request';
+import Puzzles from './pages/Puzzles';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/request" element={<Request />} />
+        <Route path="/puzzles" element={<Puzzles />} />
       </Routes>
       <Footer />
     </BrowserRouter>

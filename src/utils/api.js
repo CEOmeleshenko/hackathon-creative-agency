@@ -19,9 +19,15 @@ export const api = {
       console.error(error);
     }
   },
-  register: async () => {
+  register: async (fio, email, password) => {
     try {
-      const response = await axios.get(`${baseURL}User/registration`);
+      const response = await axios.get(`${baseURL}User/registration`, {
+        params: {
+          fio: fio,
+          mail: email,
+          password: password
+        }
+      });
       return response.data;
     } catch (error) {
       console.error(error);

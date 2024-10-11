@@ -3,6 +3,7 @@ import Modal from './Modal';
 import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../utils/api';
 import { userProfile } from '../stores/profile.store';
+// jondn@mail.com
 
 
 const AuthPopup = () => {

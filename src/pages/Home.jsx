@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SurveyPopup from '../components/SurveyPopup';
+import ColorPicker from '../components/ColorPicker';
+
 
 const Home = () => {
   const navigation = useNavigate();
@@ -80,7 +83,7 @@ const Home = () => {
               <span className="text-red-500">от 10.000 рублей</span>
             </div>
             <div className="bg-white p-8 shadow-md">
-              <h3 className="text-xl font-bold mb-4">Дизайг сайта-каталога</h3>
+              <h3 className="text-xl font-bold mb-4">Дизайн сайта-каталога</h3>
               <p className="mb-4">Экономичный, быстрый, продающий инструмент для вашего бизнеса. Наполнение карточками товаров подробным описанием и ценами</p>
               <span className="text-red-500">от 12.000 рублей</span>
             </div>
@@ -121,6 +124,22 @@ const Home = () => {
               <p>Окончательный дизайн</p>
             </div>
           </div>
+        </div>
+      </section>
+      <section className="bg-white py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">Попробуйте свой цвет!</h2>
+          <p className="mb-8">Мы предлагаем вам поэкспериментировать с цветовой политрой, или <a onClick={() => navigation('/request')} className="text-red-500 cursor-pointer">заказать услугу</a> прямо сейчас</p>
+          <ColorPicker />
+        </div>
+      </section>
+      <section className="bg-white py-16">
+        <div className="container mx-auto text-center flex justify-around">
+          <div>
+            <h2 className="text-3xl font-bold mb-8">Хотите поиграть?</h2>
+            <p className="mb-8">Мы предлагаем вам поиграть в игру пазлы и увидеть, как это работает. </p>
+          </div>
+          <button onClick={() => navigation('/puzzles')} className="bg-red-500 hover:bg-red-700 text-white font-bold my-4 mx-2 rounded w-1/3">Попробуйте</button>
         </div>
       </section>
       <section className="bg-white py-16">
@@ -166,6 +185,7 @@ const Home = () => {
               <p>Вы можете задать свой вопрос, позвонив по телефону +7 (778) 905-12-44 или оставив заявку на сайте.</p>
             </div>
           </div>
+          <SurveyPopup />
         </div>
       </section>
       <section className="bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url(map.png)` }}>
@@ -180,6 +200,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

@@ -21,7 +21,7 @@ const Navbar = () => {
         {!user ? <AuthPopup /> :
 
           <div className="w-12 h-12 overflow-hidden rounded-full">
-            <img src="https://placehold.co/100x100" className="w-full h-full object-cover" alt={user.fio} />
+            <img onClick={() => navigation('/profile')} src="avatar-m.png" className="w-full h-full object-cover cursor-pointer" alt={user.fio} />
           </div>
 
         }
